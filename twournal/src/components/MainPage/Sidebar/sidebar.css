@@ -1,0 +1,56 @@
+body {
+    height: 100%;
+    
+}
+#userInfo {
+    height: 100vh;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2%;
+    border: 2px solid black;
+    padding: 2%;
+}
+
+#avatar {
+    padding: 10%;
+}
+
+input {
+    height: fit-content;
+    width: fit-content;
+}
+
+#biosubmit {
+    color: white;
+    background-color: black;
+    border-radius: 10%;
+    margin-top: 5%;
+}
+
+#userProf, #navbar, #logout {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10%;
+    align-items: center;
+}
+
+#userProf img {
+    border-radius: 100%;
+    height: 55%;
+    width: 55%;
+}
+
+#navbar {
+    height: 30%;
+    border-top: 2px solid black;
+    width: 100%;
+}
+
+#logout {
+    border-top: 2px solid black;
+    width: 100%;
+}
