@@ -1,31 +1,38 @@
 import React from 'react'
+import Twournals from './Twounrals/Twournals';
+import Sidebar from './Sidebar/Sidebar';
+import './mainpage.css';
+import 'bootstrap';
+
 
 class MainPage extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {Twournal: new Twournal()}
+      super(props);
+      this.state = {
+        firstName: '',
+      }
     }
+    
+
+      
 
     render() {
         return (
-        <div id='twounralContainer'>
+        <>
+        <div id='mainpage'>
+          <Sidebar clearLocalStorage={this.props.clearLocalStorage} />
+          <div id='twournalContainer'>
+            <div id='heading'>
+              <h3>Welcome {this.state.firstName}, expand your thoughts!</h3>
+            </div>
           <div className='indyTwournal'>
             <div className='daTwourn'>
-
-            </div>
-            <div className='daTweets'>
-
+              <Twournals />
             </div>
           </div>
-          <div className='indyTwournal'>
-            <div className='daTwourn'>
-              
-            </div>
-            <div className='daTweets'>
-
-            </div>
           </div>
         </div>
+        </>
         )
     }
 }
