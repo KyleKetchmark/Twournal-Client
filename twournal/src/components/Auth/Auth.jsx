@@ -21,16 +21,22 @@ class Auth extends Component {
     
     render() {
     return (
+        <>
+        <div id='header'>
+            <h2>Twournal</h2>
+            <p><i>Expand your thoughts...</i></p>
+        </div>
         <Container>
             <Row>
-                {this.state.formStatus === 'register' ? <Col md='6'>
+                {this.state.formStatus === 'register' ? <Col md='6' className='forms'>
                 <RegisterForm setToken={this.props.setToken} setFormStatus={this.setFormStatus} />
                 </Col> : 
-                <Col md='6'>
+                <Col md='6' className='forms'>
                 <Login setToken={this.props.setToken} setFormStatus={this.setFormStatus}/>
                 </Col>}
             </Row>
         </Container>
+        </>
     )
     }
 }

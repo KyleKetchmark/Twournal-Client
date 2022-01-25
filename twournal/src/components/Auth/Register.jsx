@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.css";
-
+import './register.css'
 
 class RegisterForm extends React.Component {
     constructor(props) {
@@ -44,12 +44,8 @@ class RegisterForm extends React.Component {
     render() {
         return (
             <>
-                <div >
-                    <h2>Twournal</h2>
-                </div>
                 <div id='registerForm'>
-                    <h1>Register for a Twournal Account!</h1>
-                    <p>Push some P</p>
+                    <h3>Register for a Twournal Account!</h3>
                     <Form onSubmit={this.registerSubmit}>
                         <FormGroup>
                             <Label for="firstName">
@@ -111,7 +107,7 @@ class RegisterForm extends React.Component {
                                 onChange={this.handleChange}
                             />
                         </FormGroup>
-                        <Button type='submit' >Register</Button>
+                        <Button type='submit' >Submit</Button>
                         <Button onClick={this.props.setFormStatus}>Login here!</Button>
                     </Form>
                 </div>

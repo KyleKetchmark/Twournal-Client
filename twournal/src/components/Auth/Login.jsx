@@ -39,8 +39,9 @@ class Login extends Component {
         return (
             
             <div id='loginForm'>
-                <h1>Login</h1>
-                <h4>Welcome back! Login to keep the mental expansion of thoughts never-ending.</h4>
+                <h4>Welcome back!</h4>
+                <br />
+                <h5>Login to keep the mental expansion of thoughts never-ending.</h5>
                 <Form onSubmit={this.loginSubmit}>
                     <FormGroup>
                         <Label for="loginEmail">
@@ -66,7 +67,7 @@ class Login extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button className='btn' type='submit'>Login</Button>
+                    <Button className='btn' type='submit'>Submit</Button>
                     <Button className='btn' onClick={this.props.setFormStatus}>Register here!</Button>
                 </Form> 
             </div>

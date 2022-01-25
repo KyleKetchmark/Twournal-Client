@@ -41,12 +41,18 @@ input {
     margin-top: 5%;
 }
 
-#userProf, #navbar, #logout {
+#userProf, #navbar, #expand, #logout {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     padding: 10%;
     align-items: center;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#userProf h2 {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #userProf img {
@@ -59,9 +65,19 @@ input {
     height: 30%;
     border-top: 2px solid black;
     width: 100%;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#postModel {
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    border-top: 2px solid black;
 }
 
 #logout {
     border-top: 2px solid black;
     width: 100%;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
 }

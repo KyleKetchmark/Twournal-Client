@@ -44,9 +44,9 @@ class Twournals extends React.Component {
     }
 
     fetchTwournal = (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
-        fetch(`http://localhost:3800/twournal/${this.props.user}`, {
+        fetch(`http://localhost:3800/twournal/${this.props.userId}`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -64,6 +64,12 @@ class Twournals extends React.Component {
         // this.fetchTwournal()
     }
 
+    // getFeed = () => {
+    //     this.fetchTwournal();
+    //     this.state.twournals.map((key, i) => {
+
+    //     })
+    // }
     // componentWillUnmount();
     render() {
         return (
@@ -73,7 +79,7 @@ class Twournals extends React.Component {
                         <Card id='twournalEntry' style={{ width: '18rem' }}>
                             <CardBody>
                                 <CardTitle tag="h5">
-                                    {/* {this.state.title} */}
+                                    {this.props.twournals}
                                     title prop
                                 </CardTitle>
                                 <CardSubtitle
@@ -81,14 +87,14 @@ class Twournals extends React.Component {
                                     tag="h6"
                                 >
                                     twitteract prop
-                                    {/* <i>{this.state.twournals.twitterAct}</i> */}
+                                    <i>{this.props.twournals}</i>
                                 </CardSubtitle>
                                 <CardText>
                                     body prop
-                                    {/* {this.state.twournals.body} */}
+                                    {this.props.twournals}
                                 </CardText>
                                 <CardFooter>
-                                    {/* {this.state.twournals.date}     */}
+                                    {this.props.twournals}    
                                 </CardFooter>
                                 <Button type='submit' onClick={this.editTwournal}>Edit</Button>
                                 <Button type='submit' onClick={this.deleteTwournal}>
@@ -98,7 +104,7 @@ class Twournals extends React.Component {
                         </Card>
                     </div>
                     <div id='tweetBody'>
-                        <Tweets />
+                        <Tweets tweetId={this.props.twournals} />
                     </div>
                 </div>
             </>
