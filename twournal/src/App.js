@@ -13,33 +13,37 @@ class App extends Component {
   }
 
   componentWillMount() {
-    // const token = localStorage.getItem('token');
-    // if (token && !this.state.sessionToken) {
-    //   this.setState({ sessionToken: token })
-    // }
+    const token = localStorage.getItem('token');
+    if (token && !this.state.sessionToken) {
+      this.setState({ sessionToken: token })
+    }
   }
 
-  setSessionToken = (token) => {
+  setSessionState = (token) => {
     localStorage.setItem("token", token)
     this.setState({ sessionToken: token })
   }
 
+  componentWillUnmount() {
+    this.clearLocalStorage()
+  }
+
   clearLocalStorage = () => {
+    this.setState({sessionToken: '',})
     localStorage.clear()
-    this.setState({sessionToken: undefined})
+    console.log("You've logged out!");
   }
 
   viewer = () => {
-    return this.state.sessionToken !== '' || undefined ?
-      <MainPage sessionToken={this.state.sessionToken} setToken={this.setSessionToken} clearLocalStorage={this.clearLocalStorage} /> :
-      <Auth setToken={this.setSessionToken} />
+    return this.state.sessionToken !== '' ?
+      <MainPage sessionToken={this.state.sessionToken} setToken={this.setSessionState} setClear={this.clearLocalStorage} /> :
+      <Auth setToken={this.setSessionState} />
   }
   render() {
   return(
     <Router>
       <div className = 'App' >
-        {/* {this.viewer()} */}
-      <MainPage sessionToken={this.state.sessionToken} setToken={this.setSessionToken} clearLocalStorage={this.clearLocalStorage} />
+        {this.viewer()}
         <div style = {{ display: "flex", justifyContent: "center", paddingTop: "5vh"}}>
           <footer className="footer">2022 &copy; Created by Kyle Ketchmark</footer>
         </div>

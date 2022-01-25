@@ -7,11 +7,45 @@ class Twournals extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            twournals: []
+            twournals: {}
         }
     }
 
-    fetchTwournal = () => {
+    deleteTwournal = (event) => {
+        event.preventDefault()
+
+        fetch(`http://localhost:3800/twournal/delete/${this.props.twournalId}`, {
+            method: 'DELETE',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': this.props.token
+            })
+        })
+            .then((res) => res.json())
+            .then((logData) => {
+                return this.setState({ twournals: logData })
+            })
+    }
+
+    editTwournal = (event) => {
+        event.preventDefault()
+
+        fetch(`http://localhost:3800/twournal/update/${this.props.user}`, {
+            method: 'PUT',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': this.props.token
+            })
+        })
+            .then((res) => res.json())
+            .then((logData) => {
+                return this.setState({ twournals: logData })
+            })
+    }
+
+    fetchTwournal = (event) => {
+        event.preventDefault()
+
         fetch(`http://localhost:3800/twournal/${this.props.user}`, {
             method: 'GET',
             headers: new Headers({
@@ -35,24 +69,29 @@ class Twournals extends React.Component {
         return (
             <>
                 <div id='entireBody'>
-                    <div id='twounralBody'>
+                    <div id='twournalBody'>
                         <Card id='twournalEntry' style={{ width: '18rem' }}>
                             <CardBody>
                                 <CardTitle tag="h5">
-                                    {this.state.title}
+                                    {/* {this.state.title} */}
+                                    title prop
                                 </CardTitle>
                                 <CardSubtitle
                                     className="mb-2 text-muted"
                                     tag="h6"
                                 >
-                                    <i>{this.state.twitterAct}</i>
+                                    twitteract prop
+                                    {/* <i>{this.state.twournals.twitterAct}</i> */}
                                 </CardSubtitle>
                                 <CardText>
-                                    Body prop.
+                                    body prop
+                                    {/* {this.state.twournals.body} */}
                                 </CardText>
-                                <CardFooter>Date prop</CardFooter>
-                                <Button>Edit</Button>
-                                <Button>
+                                <CardFooter>
+                                    {/* {this.state.twournals.date}     */}
+                                </CardFooter>
+                                <Button type='submit' onClick={this.editTwournal}>Edit</Button>
+                                <Button type='submit' onClick={this.deleteTwournal}>
                                     Delete
                                 </Button>
                             </CardBody>

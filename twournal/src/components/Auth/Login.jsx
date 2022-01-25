@@ -21,11 +21,11 @@ class Login extends Component {
     loginSubmit = (event) => {
         event.preventDefault()
         
-        let url = `http://localhost:3700/user/login`
+        let url = `http://localhost:3800/user/login`
 
         fetch(url, {
             method: "POST",
-            body: JSON.stringify({user: this.state}),
+            body: JSON.stringify(this.state),
             headers: new Headers({
                 "Content-Type": "application/json"
             })
@@ -66,8 +66,8 @@ class Login extends Component {
                             onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <Button type='submit'>Login</Button>
-                    <Button onClick={this.props.setFormStatus}>New? Register here</Button>
+                    <Button className='btn' type='submit'>Login</Button>
+                    <Button className='btn' onClick={this.props.setFormStatus}>Register here!</Button>
                 </Form> 
             </div>
             
