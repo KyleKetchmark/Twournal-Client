@@ -2,26 +2,44 @@ import React from 'react';
 import Logout from './Logout/Logout';
 import Expand from './ExpandBtn/Expand';
 import './sidebar.css';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Input, FormGroup, Label } from 'reactstrap'
-import defPic from './default.png'
+import { Input, ModalFooter, Form, FormText, FormGroup, Label, Modal, Button } from 'reactstrap';
+import defPic from './default.png';
 
 class Sidebar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            profPicLink: '',
-            summary: '',
-            show: false
+            show: false,
+            title: '',
+            body: '',
+            date: this.getDate,
+            twitterAct: '', //ask TJ about
+            tweetId: 0
         }
+    }
+
+    getDate = () => {
+        let current = new Date();
+        let date = `${current.getDate()}/${current.getMonth()}/${current.getFullYear()}}`
+        return date;
+    }
+    
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     handleExpand = () => {
         this.setState({ show: !this.state.show })
     }
 
-    postTwournal = () => {
-        fetch(`http://localhost:3800/twournal/create`, {
+    postTwournal = (event) => {
+        event.preventDefault()
+
+        fetch(`http://localhost:3700/twournal/create`, {
             method: 'POST',
+            body: JSON.stringify({twournals: this.state}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': this.props.token
@@ -31,6 +49,7 @@ class Sidebar extends React.Component {
             .then((logData) => {
                 return this.setState({ twournals: logData })
             })
+            console.log(this.twournals);
     }
 
     render() {
@@ -40,8 +59,6 @@ class Sidebar extends React.Component {
                     <div id='userProf'>
                         <h2><i>Twournal</i></h2>
                         <img id='avatar' src={defPic} alt="add a pic" />
-                        {/* <input type="text" placeholder={'brief user bio'} />
-                        <button id='biosubmit' onClick={null}>Submit Bio</button> */}
                     </div>
                     <div id='expand'>
                         <Button
@@ -51,19 +68,18 @@ class Sidebar extends React.Component {
                             Ready to expand?
                         </Button>
                         {this.state.show === true ?
-
                             <Modal
                                 fade={false}
+                                id='postModel'
                                 toggle={this.handleExpand}
                                 isOpen={this.state.show}
                                 style={{ height: '75%', width: '75%' }}
                             >
-                                <Form>
-                                    <ModalHeader toggle={this.handleExpand}>
-                                        Title:
-                                    </ModalHeader>
-                                    <FormGroup>
-                                        
+                                <Form onSubmit={this.postTwournal}>
+                                    <FormGroup className='entryPoints'>
+                                        <Label>
+                                            Title:
+                                        </Label>
                                         <Input
                                             id="li_title"
                                             name="title"
@@ -72,14 +88,31 @@ class Sidebar extends React.Component {
                                             onChange={this.handleChange}
                                         />
                                     </FormGroup>
-                                    <ModalBody>
-                                        Body:
-                                    </ModalBody>
-                                    <FormGroup>
+                                    <FormGroup className='entryPoints'>
+                                        <label>
+                                            Body:
+                                        </label>
+                                        <br />
+                                        <textarea 
+                                            id="li_body"
+                                            name="body"
+                                            placeholder="enter your thoughts"
+                                            type="text"
+                                            maxLength='1000'
+                                            onChange={this.handleChange}
+                                            >
+                                            
+                                        </textarea>
+                                            
+                                    </FormGroup>
+                                    <FormGroup className='entryPoints'>
+                                        <Label>
+                                            @TwitterHandle:
+                                        </Label>
                                         <Input
-                                            id="li_thoughts"
-                                            name="thoughts"
-                                            placeholder="enter thoughts"
+                                            id="li_th"
+                                            name="th"
+                                            placeholder="@tweetybird"
                                             type="text"
                                             onChange={this.handleChange}
                                         />
@@ -91,7 +124,6 @@ class Sidebar extends React.Component {
                                         >
                                             Connect a Tweet?
                                         </Button>
-                                        {' '}
                                         <Button onClick={this.postTwournal}>
                                             Post
                                         </Button>
@@ -100,7 +132,7 @@ class Sidebar extends React.Component {
                             </Modal> : null}
                     </div>
                     <div id='logout'>
-                        <Logout clearLocalStorage={this.props.clearLocalStorage} />
+                        <Logout setClear={this.props.setClear} />
                     </div>
                 </div>
             </>

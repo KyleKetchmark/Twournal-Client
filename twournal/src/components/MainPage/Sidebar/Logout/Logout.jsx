@@ -13,7 +13,7 @@ class Logout extends Component {
         return (
             <>
             <div id='logoutbtn' style={{color: 'black'}}>
-                <button onClick={this.props.clearLocalStorage}>Logout</button>
+                <button onClick={this.props.setClear}>Logout</button>
             </div>
             </>
         )

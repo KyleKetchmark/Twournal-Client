@@ -20,7 +20,7 @@ class MainPage extends React.Component {
         return (
         <>
         <div id='mainpage'>
-          <Sidebar clearLocalStorage={this.props.clearLocalStorage} />
+          <Sidebar setClear={this.props.setClear} />
           <div id='twournalContainer'>
             <div id='heading'>
               <h3>Welcome {this.state.firstName}, expand your thoughts!</h3>
