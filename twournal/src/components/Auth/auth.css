@@ -1,20 +1,27 @@
-Auth {
+#header {
+    text-align: center;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 5%;
+}
+
+.forms {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     margin: 5%;
     padding: 5%;
 }
 
-
-Container {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-Row {
+.row {
     display: flex;
     align-items: center;
     justify-content: center;

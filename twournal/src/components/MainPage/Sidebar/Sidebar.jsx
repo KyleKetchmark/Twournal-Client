@@ -12,16 +12,16 @@ class Sidebar extends React.Component {
             show: false,
             title: '',
             body: '',
-            date: this.getDate,
+            date: this.getDate(),
             twitterAct: '', //ask TJ about
-            tweetId: 0
+            tweetId: 0,
+            twournal: {},
         }
     }
 
     getDate = () => {
         let current = new Date();
-        let date = `${current.getDate()}/${current.getMonth()}/${current.getFullYear()}}`
-        return date;
+        return current;
     }
     
     handleChange = (event) => {
@@ -37,9 +37,15 @@ class Sidebar extends React.Component {
     postTwournal = (event) => {
         event.preventDefault()
 
-        fetch(`http://localhost:3700/twournal/create`, {
+        fetch(`http://localhost:3800/twournal/create`, {
             method: 'POST',
-            body: JSON.stringify({twournals: this.state}),
+            body: JSON.stringify({
+                title: this.state.title,
+                body: this.state.body,
+                date: this.state.date,
+                twitterAct: this.state.twitterAct,
+                tweetId: this.state.tweetId
+            }),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': this.props.token
@@ -47,9 +53,9 @@ class Sidebar extends React.Component {
         })
             .then((res) => res.json())
             .then((logData) => {
-                return this.setState({ twournals: logData })
+                console.log(logData);
+                return this.setState({ twournal: logData })
             })
-            console.log(this.twournals);
     }
 
     render() {
@@ -111,7 +117,7 @@ class Sidebar extends React.Component {
                                         </Label>
                                         <Input
                                             id="li_th"
-                                            name="th"
+                                            name="twitterAct"
                                             placeholder="@tweetybird"
                                             type="text"
                                             onChange={this.handleChange}
@@ -124,7 +130,7 @@ class Sidebar extends React.Component {
                                         >
                                             Connect a Tweet?
                                         </Button>
-                                        <Button onClick={this.postTwournal}>
+                                        <Button type='submit'>
                                             Post
                                         </Button>
                                     </ModalFooter>
