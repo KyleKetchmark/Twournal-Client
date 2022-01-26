@@ -37,7 +37,7 @@ class App extends Component {
   viewer = () => {
     return this.state.sessionToken !== '' ?
       <MainPage sessionToken={this.state.sessionToken} setToken={this.setSessionState} setClear={this.clearLocalStorage} /> :
-      <Auth setToken={this.setSessionState} sessionToken={this.state.sessionToken}/>
+      <Auth setToken={this.setSessionState} sessionToken={this.state.sessionToken} first={this.props.firstName} />
   }
   render() {
   return(
