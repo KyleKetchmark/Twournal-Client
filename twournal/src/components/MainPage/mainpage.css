@@ -1,0 +1,36 @@
+body {
+    background-color: w;
+}
+
+#mainpage {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+#heading {
+    text-align: center;
+}
+
+#twournalContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5%;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 25%;
+    flex-wrap: wrap;
+}
+
+#heading {
+    padding: 2%;
+}
+
+#indyTwournal {
+    display: flex;
+    flex-direction: row;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+}

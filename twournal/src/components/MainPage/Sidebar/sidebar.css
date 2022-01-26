@@ -1,0 +1,87 @@
+body {
+    height: 100%;
+    
+}
+#userInfo {
+    height: 100vh;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2%;
+    border-right: 2px solid black;
+    padding: 2%;
+    position: fixed;
+}
+
+#avatar {
+    padding: none;
+    height: 100%;
+    width: 100%;
+}
+
+.entryPoints {
+    padding: 5%;
+    text-align: center;
+}
+
+#li_body {
+    padding: 25%;
+    width: 100%;
+}
+
+input {
+    height: fit-content;
+    width: fit-content;
+}
+
+#biosubmit {
+    color: white;
+    background-color: black;
+    border-radius: 10%;
+    margin-top: 5%;
+}
+
+#userProf, #navbar, #expand, #logout, #tweet {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10%;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#userProf h2 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#userProf img {
+    border-radius: 100%;
+    height: 55%;
+    width: 55%;
+}
+
+#navbar, #expand, #tweet, #logout {
+    height: 30%;
+    border-top: 1px solid black;
+    width: 100%;
+    font-size: xx-large;
+    font-style: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#postModel {
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    border-top: 2px solid black;
+}
+
+/* #logout {
+    border-top: 1px solid black;
+    width: 100%;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+} */

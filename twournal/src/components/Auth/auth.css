@@ -1,0 +1,33 @@
+.Auth {
+    background-color: #fcfcfc;
+}
+
+#header {
+    text-align: center;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 5%;
+}
+
+.forms {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5%;
+    padding: 5%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
