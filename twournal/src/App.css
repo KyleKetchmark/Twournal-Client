@@ -1,5 +1,10 @@
 .App {
   background-color: #fcfcfc;
-  height: 100rem;
+  height: auto;
   width: auto;
+}
+
+.App footer {
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace;
 }

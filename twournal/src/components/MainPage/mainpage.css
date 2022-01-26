@@ -1,13 +1,11 @@
 body {
-    /* background-color: white; */
+    background-color: w;
 }
 
 #mainpage {
     display: flex;
     flex-direction: row;
-    padding: 1%;
-    justify-content: space-between;
-    align-items: baseline;
+    overflow: hidden;
 }
 
 #heading {
@@ -16,12 +14,14 @@ body {
 
 #twournalContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     padding: 5%;
     font-size: large;
     font-family: 'Courier New', Courier, monospace;
+    padding-left: 25%;
+    flex-wrap: wrap;
 }
 
 #heading {

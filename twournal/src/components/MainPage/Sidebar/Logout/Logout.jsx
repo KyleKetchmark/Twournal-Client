@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './logout.css';
 
 class Logout extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class Logout extends Component {
     render() {
         return (
             <>
-            <div id='logoutbtn' style={{color: 'black'}}>
+            <div id='logoutbtn'>
                 <button onClick={this.props.setClear}>Logout</button>
             </div>
             </>
