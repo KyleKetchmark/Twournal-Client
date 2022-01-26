@@ -2,6 +2,7 @@ import React from 'react';
 import Tweets from './Tweets/Tweets'
 import Twournals from './Twournals/Twournal';
 import './feed.css';
+import APIURL from '../../../helpers/environment';
 
 class Feed extends React.Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class Feed extends React.Component {
     fetchTwournal = async (event) => {
         // event.preventDefault();
 
-        await fetch(`http://localhost:3800/twournal/`, {
+        await fetch(`${APIURL}/twournal/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -31,7 +32,7 @@ class Feed extends React.Component {
 
     fetchTweet = async (event) => {
         // event.preventDefault();
-        await fetch(`http://localhost:3800/tweet/`, {
+        await fetch(`${APIURL}/tweet/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -47,7 +48,7 @@ class Feed extends React.Component {
 
     editTwournal = (event) => {
         // event.preventDefault()
-        fetch(`http://localhost:3800/twournal/update/${this.state.twournals.twournalId}`, {
+        fetch(`${APIURL}/twournal/update/${this.state.twournals.twournalId}`, {
             method: 'PUT',
             body: JSON.stringify({
                 title: this.state.title,
@@ -69,7 +70,7 @@ class Feed extends React.Component {
 
     deleteTwournal = (event) => {
         // event.preventDefault()
-        fetch(`http://localhost:3800/twournal/delete/${this.state.twournals.twournalId}`, {
+        fetch(`${APIURL}/twournal/delete/${this.state.twournals.twournalId}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -82,7 +83,7 @@ class Feed extends React.Component {
 
     deleteTweet = (event) => {
         // event.preventDefault()
-        fetch(`http://localhost:3800/tweet/delete/${this.state.tweets.tweetId}`, {
+        fetch(`${APIURL}/tweet/delete/${this.state.tweets.tweetId}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',

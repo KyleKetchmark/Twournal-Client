@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Input, ModalFooter, Form, FormGroup, Label, Modal, Button } from 'reactstrap';
+import APIURL from '../../../../helpers/environment';
 
 class TweetBtn extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class TweetBtn extends Component {
 
     postTweet = (event) => {
         event.preventDefault()
-        fetch(`http://localhost:3800/tweet/create`, {
+        fetch(`${APIURL}/tweet/create`, {
             method: 'POST',
             body: JSON.stringify({
                 username: this.state.username,

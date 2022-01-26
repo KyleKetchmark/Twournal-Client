@@ -1,7 +1,8 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.css";
-import './register.css'
+import './register.css';
+import APIURL from '../../helpers/environment';
 
 class RegisterForm extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class RegisterForm extends React.Component {
     registerSubmit = (event) => {
         event.preventDefault();
 
-        fetch(`http://localhost:3800/user/register`, {
+        fetch(`${APIURL}/user/register`, {
             method: "POST",
             body: JSON.stringify( this.state ),
             headers: new Headers({

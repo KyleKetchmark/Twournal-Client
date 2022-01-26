@@ -1,5 +1,6 @@
 import React from 'react'
 import { Input, ModalFooter, Form, FormGroup, Label, Modal, Button } from 'reactstrap';
+import APIURL from '../../../../helpers/environment';
 
 class Expand extends React.Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class Expand extends React.Component {
     postTwournal = (event) => {
         event.preventDefault()
 
-        fetch(`http://localhost:3800/twournal/create`, {
+        fetch(`${APIURL}/twournal/create`, {
             method: 'POST',
             body: JSON.stringify({
                 title: this.state.title,

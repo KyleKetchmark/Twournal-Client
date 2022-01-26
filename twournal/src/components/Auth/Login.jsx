@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './login.css';
+import APIURL from '../../helpers/environment';
 
 class Login extends Component {
 
@@ -21,7 +22,7 @@ class Login extends Component {
     loginSubmit = (event) => {
         event.preventDefault()
         
-        let url = `http://localhost:3800/user/login`
+        let url = `${APIURL}/user/login`
 
         fetch(url, {
             method: "POST",
