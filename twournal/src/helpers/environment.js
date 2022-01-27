@@ -6,7 +6,8 @@ switch (window.location.hostname) {
         break;
 
     case 'ketch-twournal-client.herokuapp.com':
-        APIURL = 'https://ketch-twournal-client.herokuapp.com'
+        APIURL = 'https://ketch-twournal-v1.herokuapp.com';
+        break;
 }
 
 export default APIURL;
